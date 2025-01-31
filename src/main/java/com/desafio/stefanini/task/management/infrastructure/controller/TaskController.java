@@ -15,23 +15,23 @@ import java.util.List;
 @RequestMapping("/api/tasks")
 public interface TaskController {
 
-    @Operation(description = "Create a task")
+    @Operation(summary = "Create a task")
     @ApiResponse(responseCode = "201", description = "Task successfully created")
     @PostMapping("/create")
     ResponseEntity<TaskResponse> create(@RequestBody CreateTaskRequest createTaskRequest);
 
-    @Operation(description = "List tasks")
+    @Operation(summary = "List tasks")
     @ApiResponse(responseCode = "200", description = "Tasks successfully fetched")
     @GetMapping("/get")
     ResponseEntity<List<TaskResponse>> get();
 
-    @Operation(description = "Update a task")
+    @Operation(summary = "Update a task")
     @ApiResponse(responseCode = "200", description = "Task successfully updated")
     @PutMapping("/update")
     ResponseEntity<TaskResponse> update(@RequestBody UpdateTaskRequest updateTaskRequest);
 
-    @Operation(description = "Delete a task")
+    @Operation(summary = "Delete a task")
     @ApiResponse(responseCode = "204", description = "Task successfully deleted")
-    @PostMapping("/delete/{id}")
+    @DeleteMapping("/delete/{id}")
     ResponseEntity<Void> delete(@PathVariable Long id);
 }

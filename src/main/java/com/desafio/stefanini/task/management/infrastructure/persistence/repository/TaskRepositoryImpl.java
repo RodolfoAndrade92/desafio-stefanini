@@ -4,9 +4,11 @@ import com.desafio.stefanini.task.management.domain.mapper.TaskMapper;
 import com.desafio.stefanini.task.management.domain.model.Task;
 import com.desafio.stefanini.task.management.domain.repository.TaskRepository;
 import com.desafio.stefanini.task.management.infrastructure.persistence.entity.TaskEntity;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+@Component
 public class TaskRepositoryImpl implements TaskRepository {
 
     final TaskMapper mapper;

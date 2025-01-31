@@ -6,12 +6,14 @@ import com.desafio.stefanini.task.management.application.dto.UpdateTaskRequest;
 import com.desafio.stefanini.task.management.domain.enums.TaskStatus;
 import com.desafio.stefanini.task.management.domain.model.Task;
 import com.desafio.stefanini.task.management.infrastructure.persistence.entity.TaskEntity;
+import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+@Component
 public class TaskMapper {
 
     public Task convertToTask(CreateTaskRequest createTaskRequest) {
@@ -32,6 +34,7 @@ public class TaskMapper {
 
     public Task convertToTask(TaskEntity taskEntity) {
         return Task.builder()
+                .id(taskEntity.getId())
                 .title(taskEntity.getTitle())
                 .description(taskEntity.getDescription())
                 .createDate(taskEntity.getCreateDate())
@@ -41,6 +44,7 @@ public class TaskMapper {
 
     public TaskEntity convertToTaskEntity(Task task) {
         return TaskEntity.builder()
+                .id(task.getId())
                 .title(task.getTitle())
                 .description(task.getDescription())
                 .createDate(task.getCreateDate())
